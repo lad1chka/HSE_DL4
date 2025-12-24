@@ -52,21 +52,21 @@ while true; do
             echo -e "${BLUE}Шаг 1: Подготовка данных${NC}"
             python3 data_preparation.py
             if [ $? -ne 0 ]; then
-                echo -e "${YELLOW}⚠ Предупреждение: data_preparation.py завершилась с ошибкой${NC}"
+                echo -e "${YELLOW}Предупреждение: data_preparation.py завершилась с ошибкой${NC}"
                 echo -e "${YELLOW}Убедитесь, что репозиторий stocknet-dataset клонирован.${NC}"
             fi
             
             echo -e "\n${BLUE}Шаг 2: Создание признаков${NC}"
             python3 feature_engineering.py
             if [ $? -ne 0 ]; then
-                echo -e "${YELLOW}❌ Ошибка на шаге 2${NC}"
+                echo -e "${YELLOW}Ошибка на шаге 2${NC}"
                 break
             fi
             
             echo -e "\n${BLUE}Шаг 3: Обучение модели${NC}"
             python3 model_training.py
             if [ $? -ne 0 ]; then
-                echo -e "${YELLOW}❌ Ошибка на шаге 3${NC}"
+                echo -e "${YELLOW}Ошибка на шаге 3${NC}"
                 break
             fi
             
@@ -75,11 +75,11 @@ while true; do
             python3 app.py
             ;;
         6)
-            echo -e "\n${GREEN}До встречи!${NC}\n"
+            echo -e "\n${GREEN}Завершение работы${NC}\n"
             exit 0
             ;;
         *)
-            echo -e "${YELLOW}Неверный выбор. Попробуйте снова.${NC}\n"
+            echo -e "${YELLOW}Ошибка.${NC}\n"
             ;;
     esac
 done
